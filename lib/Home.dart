@@ -1,18 +1,107 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getx_basic/controllers/tap_controller.dart';
+import 'package:getx_basic/first_page.dart';
+import 'package:getx_basic/second_page.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    TapController controller = Get.put(TapController());
+
+    return Scaffold(
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Hi'),
+            GetBuilder<TapController>(builder: (_) {
+              return Container(
+                width: double.maxFinite,
+                height: 100,
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.cyan),
+                child: Center(
+                    child: Text(
+                  'Increased Value ${controller.x}',
+                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                )),
+              );
+            }),
+            GestureDetector(
+              onTap: () {
+                controller.increaseX();
+              },
+              child: Container(
+                width: double.maxFinite,
+                height: 100,
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.cyan),
+                child: const Center(
+                    child: Text(
+                  'TAP 1',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )),
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+                Get.to(()=> FirstPage());
+              },
+              child: Container(
+                width: double.maxFinite,
+                height: 100,
+                margin: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.cyan),
+                child: const Center(
+                    child: Text(
+                  'First Page',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )),
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+                Get.to(() => SecondPage());
+              },
+              child: Container(
+                width: double.maxFinite,
+                height: 100,
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.cyan),
+                child: const Center(
+                    child: Text(
+                  'Second Page',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )),
+              ),
+            ),
+            GestureDetector(
+              child: Container(
+                width: double.maxFinite,
+                height: 100,
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.cyan),
+                child: const Center(
+                    child: Text(
+                  'Hi',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )),
+              ),
+            ),
           ],
         ),
       ),

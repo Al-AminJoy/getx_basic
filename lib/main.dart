@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_basic/Home.dart';
 
 void main() {
@@ -11,7 +12,7 @@ void main() {
 
    @override
    Widget build(BuildContext context) {
-     return MaterialApp(
+     return GetMaterialApp(
        theme: ThemeData(primarySwatch: Colors.blue),
        home: Home(),
      );
