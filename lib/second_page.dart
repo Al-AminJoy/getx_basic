@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getx_basic/ThirdPage.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({Key? key}) : super(key: key);
@@ -10,6 +12,9 @@ class SecondPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children:[
           GestureDetector(
+            onTap: (){
+              Get.to(()=> ThirdPage());
+            },
             child: Container(
               width: double.maxFinite,
               height: 100,
@@ -19,7 +24,7 @@ class SecondPage extends StatelessWidget {
                   color: Colors.cyan),
               child: const Center(
                   child: Text(
-                    'Hi',
+                    'Third Page',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   )),
             ),
