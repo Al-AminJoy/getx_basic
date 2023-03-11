@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_basic/Home.dart';
+import 'package:getx_basic/controllers/list_controller.dart';
 import 'package:getx_basic/controllers/tap_controller.dart';
 
 class ThirdPage extends StatelessWidget {
@@ -8,6 +9,9 @@ class ThirdPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ListController listController = Get.find();
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -47,6 +51,7 @@ class ThirdPage extends StatelessWidget {
           GestureDetector(
             onTap: (){
               Get.find<TapController>().increaseY();
+              listController.addValue(Get.find<TapController>().y.value);
             },
             child: Container(
               width: double.maxFinite,
